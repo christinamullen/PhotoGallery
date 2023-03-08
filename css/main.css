@@ -1,22 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Sen&family=Sue+Ellen+Francisco&display=swap');
+
 h1 {
     text-align: center;
 }
-
+.logo{
+    width: 25%;
+}
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .albums {
     margin-top: .5rem;
     margin-bottom: 1rem;
     text-align: center;
+    font-family: 'Sen', cursive;
 
 
 }
 
 .albums {
-    width: calc(100% - 2.5rem);
+    width: calc(100% - 2.25rem);
     max-width: 800px;
     margin: 0 auto;
     display: flex;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-gap: 1.5rem;
+    padding: 2rem;
 }
 
 article {
@@ -30,15 +41,17 @@ article {
 
 }
 
-img {
+.pic {
     display: block;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 25px;
 }
 
 .slides {
+    display: grid;
     width: 250px;
     margin: auto;
+    
 
 }
 
