@@ -22,7 +22,7 @@ h1 {
 
 .albums {
     width: calc(100% - 2.25rem);
-    max-width: 800px;
+    max-width: 500px;
     margin: 0 auto;
     display: flex;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -40,19 +40,24 @@ article {
     transition: all 100ms ease-out;
 
 }
+figcaption {
+    font-family: 'Sen', cursive;
+    margin: 1rem;
+}
 
 .pic {
-    display: block;
+    display: flex;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 25px;
 }
 
 .slides {
     display: grid;
-    width: 250px;
-    margin: auto;
-    
-
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 25%;
+    grid-gap: 2rem;
+    margin: 3rem; 
 }
 
 .current {
@@ -67,3 +72,10 @@ article {
 .slides .nxt {
     float: right;
 }
+
+
+.changeSize {
+    min-width: 175px;
+    height: 175px;
+    transform: scale(1.1);
+  }
