@@ -1,0 +1,56 @@
+h1 {
+    text-align: center;
+}
+
+.albums {
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+
+
+}
+
+.albums {
+    width: calc(100% - 2.5rem);
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 1.5rem;
+}
+
+article {
+    width: 75%;
+    height: 4rem;
+    padding: 1 1.5rem;
+    background-color: #f2f2f2;
+    border-radius: .5rem;
+    line-height: 4rem;
+    transition: all 100ms ease-out;
+
+}
+
+img {
+    display: block;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 25px;
+}
+
+.slides {
+    width: 250px;
+    margin: auto;
+
+}
+
+.current {
+    transition: opacity .5s ease-out;
+}
+
+.slides figure {
+    margin: 0;
+    transition: all 200ms ease-out;
+}
+
+.slides .nxt {
+    float: right;
+}
