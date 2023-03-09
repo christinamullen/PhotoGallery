@@ -1,33 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Sen&family=Sue+Ellen+Francisco&display=swap');
-
+* {
+box-sizing: border-box;
+}
 h1 {
     text-align: center;
 }
 .logo{
     width: 25%;
 }
-.hero{
+.hero {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.albums {
-    margin-top: .5rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    font-family: 'Sen', cursive;
-
-
-}
 
 .albums {
     width: calc(100% - 2.25rem);
-    max-width: 500px;
+    max-width: 800px;
     margin: 0 auto;
     display: flex;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-gap: 1.5rem;
-    padding: 2rem;
+    padding: 3rem;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Sen', cursive;
 }
 
 article {
@@ -40,9 +38,19 @@ article {
     transition: all 100ms ease-out;
 
 }
-figcaption {
-    font-family: 'Sen', cursive;
-    margin: 1rem;
+
+/******** Galleries    *********/
+.galleries {
+    display: grid;
+    width: calc(100% - 2.25rem);
+    max-width: 600px;
+    
+    margin: auto;
+    grid-gap: 2rem;
+    /*width: 700px;
+    margin: 0;
+    text-align: center;*/
+   
 }
 
 .pic {
@@ -55,24 +63,44 @@ figcaption {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    width: 25%;
+    width: calc(100% - 1rem);
     grid-gap: 2rem;
-    margin: 3rem; 
+    margin: 0;
+    transition: all 200ms ease-out;
+
+}
+
+.slides2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: calc(100% - 1rem);
+    grid-gap: 2rem;
+    margin: 0; 
+}
+
+.slides3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: calc(100% - 1rem);
+    grid-gap: 2rem;
+    margin: 0; 
+}
+
+figcaption {
+    font-family: 'Sen', cursive;
+    margin: 1rem;
 }
 
 .current {
     transition: opacity .5s ease-out;
 }
 
-.slides figure {
-    margin: 0;
-    transition: all 200ms ease-out;
-}
 
-.slides .nxt {
+.nxt {
     float: right;
 }
-
 
 .changeSize {
     min-width: 175px;
