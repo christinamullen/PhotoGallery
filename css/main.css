@@ -47,12 +47,9 @@ article {
     max-width: 900px;
     margin: auto;
     grid-gap: 2rem;
-    /*width: 700px;
-    margin: 0;
-    text-align: center;*/
    
 }
-
+/*
 .pic {
     display: flex;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -70,7 +67,7 @@ article {
     transition: all 200ms ease-out;
 
 }
-
+*/
 .slides2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
