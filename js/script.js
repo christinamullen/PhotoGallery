@@ -9,9 +9,16 @@ var myInterval = setInterval(changeSlide, 3000);
   const prev = document.querySelector(".prev");
   const frame = document.querySelector(".frame");
   const slides = frame.querySelectorAll("img");
+
   const pastries = document.querySelector(".slides2");
   const slides2 = pastries.querySelectorAll("img");
+
+  const adoptables = document.querySelector(".slides3");
+  const slides3 = adoptables.querySelectorAll("img");
+  
   const caption = frame.querySelector('figcaption');
+  const caption2 = pastries.querySelector('figcaption');
+  const caption3 = adoptables.querySelector('figcaption');
 
   slides.forEach((pic) => {
     pic.classList.add("hide");
@@ -21,12 +28,18 @@ var myInterval = setInterval(changeSlide, 3000);
     pic.classList.add("hide");
   });
 
+  slides3.forEach((pic) => {
+    pic.classList.add("hide");
+  });
+
   slides[0].classList.remove("hide");
 
   nxt.addEventListener("click", changeSlide);
   prev.addEventListener("click", changeSlide);
 
   caption.innerHTML = slides[0].alt;
+  caption2.classList.add("hide");
+  caption3.classList.add("hide");
 }
 
 
