@@ -7,11 +7,17 @@ var myInterval = setInterval(changeSlide, 3000);
  function init(){
   const nxt = document.querySelector(".nxt");
   const prev = document.querySelector(".prev");
-  const frame = document.querySelector(".slides");
+  const frame = document.querySelector(".frame");
   const slides = frame.querySelectorAll("img");
+  const pastries = document.querySelector(".slides2");
+  const slides2 = pastries.querySelectorAll("img");
   const caption = frame.querySelector('figcaption');
 
   slides.forEach((pic) => {
+    pic.classList.add("hide");
+  });
+
+  slides2.forEach((pic) => {
     pic.classList.add("hide");
   });
 
@@ -32,7 +38,7 @@ function changeSlide(e) {
     clearInterval(myInterval);
   }
 
-  const frame = document.querySelector(".slides");
+  const frame = document.querySelector(".frame");
   const slides = frame.querySelectorAll("img");
   const caption = frame.querySelector('figcaption');
   let showing = document.querySelector(".current");
