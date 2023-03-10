@@ -46,11 +46,46 @@ var myInterval = setInterval(changeSlide, 3000);
   caption.innerHTML = slides[0].alt;
   caption2.classList.add("hide");
   caption3.classList.add("hide");
-
-
   
+  pastryAlbum.addEventListener("click", changeAlbum); 
+  adoptAlbum.addEventListener("click", changeAlbum); 
+  drinkAlbum.addEventListener("click", changeAlbum); 
 }
 
+function changeAlbum(e){
+  const frame = document.querySelector(".frame");
+  const slides = frame.querySelectorAll("img");
+
+  const pastries = document.querySelector(".slides2");
+  const slides2 = pastries.querySelectorAll("img");
+
+  const adoptables = document.querySelector(".slides3");
+  const slides3 = adoptables.querySelectorAll("img");
+
+  const caption = frame.querySelector('figcaption');
+  const caption2 = pastries.querySelector('figcaption');
+  const caption3 = adoptables.querySelector('figcaption');
+  if(e){
+        // stop link from trying to reload page
+        e.preventDefault();
+        clearInterval(myInterval);
+  }
+  slides.forEach((pic) => {
+    pic.classList.add("hide");
+  });
+
+  slides2.forEach((pic) => {
+    pic.classList.add("hide");
+  });
+
+  slides3.forEach((pic) => {
+    pic.classList.add("hide");
+  });
+  caption.classList.add("hide");
+  caption2.classList.add("hide");
+  caption3.classList.add("hide");
+
+}
 
 //let index = 0;
 function changeSlide(e) {
