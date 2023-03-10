@@ -47,9 +47,6 @@ var myInterval = setInterval(changeSlide, 3000);
   caption2.classList.add("hide");
   caption3.classList.add("hide");
 
-  pastryAlbum.addEventListener("click", switchAlbum(2));
-  adoptAlbum.addEventListener("click", switchAlbum(3));
-  drinkAlbum.addEventListener("click", switchAlbum(1));
 
   
 }
