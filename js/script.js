@@ -1,4 +1,4 @@
-//const baseURL = "/imgs/";
+
 
 //const slides = ["1esspresso.jpg", "2macchiato.jpg", "3cortado.jpg", "4cappucino.jpg', 'Avietnamesecoffee.jpg', '6mocha.jpg', 'BchaiLatte.jpg', '8cafeaulait.jpg', '9icedcoffee.jpg', '5latte.jpg', '7affogato.jpg'];
 document.addEventListener('DOMContentLoaded', init);
@@ -15,7 +15,7 @@ var myInterval = setInterval(changeSlide, 3000);
 
   const adoptables = document.querySelector(".slides3");
   const slides3 = adoptables.querySelectorAll("img");
-  
+
   const caption = frame.querySelector('figcaption');
   const caption2 = pastries.querySelector('figcaption');
   const caption3 = adoptables.querySelector('figcaption');
@@ -79,34 +79,9 @@ function changeSlide(e) {
   nextUp.classList.add("current");
 
   caption.innerHTML = nextUp.alt;
-/*
-  nxt.onclick = function(e) {
-    e.preventDefault();
-    
-    slide.src = baseURL + slides[index];
-    index++;
-    console.log(index);
-   
-    //if end of array, start at beginning [0] again
-    if(index >= slides.length) {
-      index = 0;
-    }
-  }
-  
-  //Previous button event listener
-  prev.onclick = function(e) {
-    e.preventDefault();
-    if (index === 0){
-      index = slides.length - 1;
-    }
-    else {
-      index--;
-    }
-    slide.src = baseURL + slides[index];
-    console.log(index);
-  }
-*/
-}   
+}  
+
+ 
 
 
 

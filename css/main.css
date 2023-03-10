@@ -39,8 +39,12 @@ article {
     background-color: #f2f2f2;
     border-radius: .5rem;
     line-height: 4rem;
-    transition: all 100ms ease-out;
+    transition: all .5s ease-out;
 
+}
+article:hover {
+    background-color: #731A1A;
+    color:#f2f2f2;
 }
 
   /******** Galleries    *********/
