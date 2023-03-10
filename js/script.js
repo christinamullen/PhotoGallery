@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', init);
 var myInterval = setInterval(changeSlide, 3000);
 
  function init(){
+
   const nxt = document.querySelector(".nxt");
   const prev = document.querySelector(".prev");
+
   const frame = document.querySelector(".frame");
   const slides = frame.querySelectorAll("img");
 
@@ -19,6 +21,10 @@ var myInterval = setInterval(changeSlide, 3000);
   const caption = frame.querySelector('figcaption');
   const caption2 = pastries.querySelector('figcaption');
   const caption3 = adoptables.querySelector('figcaption');
+
+  const drinkAlbum = document.querySelector(".coffee");
+  const pastryAlbum = document.querySelector(".pastries");
+  const adoptAlbum = document.querySelector(".adopt");
 
   slides.forEach((pic) => {
     pic.classList.add("hide");
@@ -40,6 +46,12 @@ var myInterval = setInterval(changeSlide, 3000);
   caption.innerHTML = slides[0].alt;
   caption2.classList.add("hide");
   caption3.classList.add("hide");
+
+  pastryAlbum.addEventListener("click", switchAlbum(2));
+  adoptAlbum.addEventListener("click", switchAlbum(3));
+  drinkAlbum.addEventListener("click", switchAlbum(1));
+
+  
 }
 
 
@@ -81,7 +93,9 @@ function changeSlide(e) {
   caption.innerHTML = nextUp.alt;
 }  
 
- 
+
+
+
 
 
 
