@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', init);
 var myInterval = setInterval(changeSlide, 3000);
 var currentAlbum;
+var cA;
 
 const frame = document.querySelector(".frame");
 const slides = frame.querySelectorAll("img");
@@ -28,6 +29,7 @@ function init(){
   const nxt = document.querySelector(".nxt");
   const prev = document.querySelector(".prev");
   currentAlbum = slides;
+  cA = frame;
 
   currentAlbum.forEach((pic) => {
     pic.classList.add("hide");
@@ -57,7 +59,6 @@ function init(){
 }
 
 function changeAlbum(e){
-
   if(e){
         // stop link from trying to reload page
         e.preventDefault();
@@ -69,11 +70,14 @@ function changeAlbum(e){
 
   switch (target) {
     case "pastries": 
-      currentAlbum = slides2;
-      slides2[0].classList.remove("hide");
-      caption2.innerHTML = slides2[0].alt;
       slides.forEach((pic) => {pic.classList.add("hide");});
       slides3.forEach((pic) => {pic.classList.add("hide");});
+      currentAlbum = slides2;
+      cA = pastries;
+      currentAlbum[0].classList.remove("hide");
+      console.log(currentAlbum);
+      caption2.innerHTML = slides2[0].alt;
+
       caption.classList.add("hide");
       caption3.classList.add("hide");
       caption2.classList.remove("hide");
@@ -81,7 +85,8 @@ function changeAlbum(e){
       break;
     case "adopt":
       currentAlbum = slides3;
-      slides3[0].classList.remove("hide");
+      cA = adoptables;
+      currentAlbum[0].classList.remove("hide");
       caption3.innerHTML = slides3[0].alt;
       slides.forEach((pic) => {pic.classList.add("hide");});
       slides2.forEach((pic) => {pic.classList.add("hide");});
@@ -92,7 +97,8 @@ function changeAlbum(e){
       break;
     default: 
       currentAlbum = slides;
-      slides[0].classList.remove("hide");
+      cA = frame;
+      currentAlbum[0].classList.remove("hide");
       caption.innerHTML = slides[0].alt;
       slides2.forEach((pic) => {pic.classList.add("hide");});
       slides3.forEach((pic) => {pic.classList.add("hide");});
@@ -114,13 +120,14 @@ function changeSlide(e) {
   //const frame = document.querySelector(".frame");
   //const slides = frame.querySelectorAll("img");
 
-  const caption = frame.querySelector('figcaption');
+  const caption = cA.querySelector('figcaption');
 
-  let showing = document.querySelector(".current");
+  let showing = cA.querySelector(".current");
   let nextUp = "";
 
   if(!e || e.target.className == 'nxt') {
     nextUp = showing.nextElementSibling;
+    console.log(nextUp);
   } else {
     nextUp = showing.previousElementSibling;
   }
@@ -137,6 +144,7 @@ function changeSlide(e) {
   if (nextUp.nodeName !== "IMG") {
     //nextUp = slides[0];
     nextUp = currentAlbum[0];
+    console.log(nextUp);
   }
 
   // activate next image
