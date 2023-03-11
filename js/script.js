@@ -36,11 +36,9 @@ function init(){
   slides3.forEach((pic) => {
     pic.classList.add("hide");
   });
-
+  
   slides[0].classList.remove("hide");
   
-
-  //nxt.addEventListener("click", changeSlide);
   nxt.addEventListener("click", changeSlide);
   prev.addEventListener("click", changeSlide);
 
@@ -60,22 +58,9 @@ function changeAlbum(e){
         e.preventDefault();
         clearInterval(myInterval);
   }
- // var target = e.target;
+ //gets the currentAlbum
  var target = e.target.classList[0];
   console.log(target);
-
-  slides.forEach((pic) => {
-    pic.classList.add("hide");
-  });
-
-  slides2.forEach((pic) => {
-    pic.classList.add("hide");
-  });
-
-  slides3.forEach((pic) => {
-    pic.classList.add("hide");
-  });
-
 
   switch (target) {
     case "pastries": 
@@ -119,10 +104,15 @@ function changeSlide(e) {
     clearInterval(myInterval);
   }
 
+
+
+
+
+
+
+
   const frame = document.querySelector(".frame");
   const slides = frame.querySelectorAll("img");
-
-
   const caption = frame.querySelector('figcaption');
 
   let showing = document.querySelector(".current");
@@ -146,7 +136,6 @@ function changeSlide(e) {
   if (nextUp.nodeName !== "IMG") {
     nextUp = slides[0];
     //nextUp = currentAlbum[0];
-
   }
 
   // activate next image
