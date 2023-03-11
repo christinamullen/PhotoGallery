@@ -48,21 +48,21 @@ function init(){
   caption2.classList.add("hide");
   caption3.classList.add("hide");
   
-  pastryAlbum.addEventListener("click", function(e) {changeAlbum(e, 2);}, false); 
-  adoptAlbum.addEventListener("click", function(e) {changeAlbum(e, 3);}, false); 
-  drinkAlbum.addEventListener("click", function(e) {changeAlbum(e, 1);}, false); 
+  pastryAlbum.addEventListener("click", changeAlbum); 
+  adoptAlbum.addEventListener("click", changeAlbum); 
+  drinkAlbum.addEventListener("click", changeAlbum); 
 }
 
-function changeAlbum(e, aNum){
+function changeAlbum(e){
 
   if(e){
         // stop link from trying to reload page
         e.preventDefault();
         clearInterval(myInterval);
   }
-  var target = e.target;
+ // var target = e.target;
+ var target = e.target.classList[0];
   console.log(target);
-  console.log(aNum);
 
   slides.forEach((pic) => {
     pic.classList.add("hide");
@@ -77,40 +77,39 @@ function changeAlbum(e, aNum){
   });
 
 
-  switch (aNum) {
-    case 2: 
+  switch (target) {
+    case "pastries": 
       slides2[0].classList.remove("hide");
       caption2.innerHTML = slides2[0].alt;
       slides.forEach((pic) => {pic.classList.add("hide");});
       slides3.forEach((pic) => {pic.classList.add("hide");});
       caption.classList.add("hide");
       caption3.classList.add("hide");
+      caption2.classList.remove("hide");
       e.preventDefault();
-      console.log(slides2);
       break;
-    case 3:
-      currentAlbum = slides3;
+    case "adopt":
+      slides3[0].classList.remove("hide");
+      caption2.innerHTML = slides3[0].alt;
       slides.forEach((pic) => {pic.classList.add("hide");});
       slides2.forEach((pic) => {pic.classList.add("hide");});
       caption.classList.add("hide");
       caption2.classList.add("hide");
-      slides3[0].classList.remove("hide");
-      caption3.innerHTML = slides3[0].alt;
+      caption3.classList.remove("hide");
       e.preventDefault();
-      console.log(slides3);
       break;
     default: 
-      currentAlbum = frame;
+      slides[0].classList.remove("hide");
+      caption.innerHTML = slides[0].alt;
       slides2.forEach((pic) => {pic.classList.add("hide");});
       slides3.forEach((pic) => {pic.classList.add("hide");});
       caption2.classList.add("hide");
       caption3.classList.add("hide");
-      slides[0].classList.remove("hide");
-      caption.innerHTML = frame[0].alt;
+      caption.classList.remove("hide");
       e.preventDefault();
-      console.log(currentAlbum);
       break;
   }
+  //return target;
 }
 
 function changeSlide(e) {
@@ -123,11 +122,6 @@ function changeSlide(e) {
   const frame = document.querySelector(".frame");
   const slides = frame.querySelectorAll("img");
 
-  const pastries = document.querySelector(".slides2");
-  const slides2 = pastries.querySelectorAll("img");
-
-  const adoptables = document.querySelector(".slides3");
-  const slides3 = adoptables.querySelectorAll("img");
 
   const caption = frame.querySelector('figcaption');
 
