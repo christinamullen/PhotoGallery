@@ -19,6 +19,7 @@ const caption3 = adoptables.querySelector('figcaption');
 const drinkAlbum = document.querySelector(".coffee");
 const pastryAlbum = document.querySelector(".pastries");
 const adoptAlbum = document.querySelector(".adopt");
+
 const nxt = "";
 const prev = "";
 
@@ -26,8 +27,9 @@ function init(){
 
   const nxt = document.querySelector(".nxt");
   const prev = document.querySelector(".prev");
+  currentAlbum = slides;
 
-  slides.forEach((pic) => {
+  currentAlbum.forEach((pic) => {
     pic.classList.add("hide");
   });
 
@@ -39,7 +41,7 @@ function init(){
     pic.classList.add("hide");
   });
   
-  slides[0].classList.remove("hide");
+  currentAlbum[0].classList.remove("hide");
   
   nxt.addEventListener("click", changeSlide);
   //nxt.addEventListener("click",function(e) {changeSlide(e, 2);}, false); 
