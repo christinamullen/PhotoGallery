@@ -47,12 +47,12 @@ var myInterval = setInterval(changeSlide, 3000);
   caption2.classList.add("hide");
   caption3.classList.add("hide");
   
-  pastryAlbum.addEventListener("click", changeAlbum); 
-  adoptAlbum.addEventListener("click", changeAlbum); 
-  drinkAlbum.addEventListener("click", changeAlbum); 
+  pastryAlbum.addEventListener("click", function(e) {changeAlbum(e, 2);}, false); 
+  adoptAlbum.addEventListener("click", function(e) {changeAlbum(e, 3);}, false); 
+  drinkAlbum.addEventListener("click", function(e) {changeAlbum(e, 1);}, false); 
 }
 
-function changeAlbum(e){
+function changeAlbum(e, aNum){
   const frame = document.querySelector(".frame");
   const slides = frame.querySelectorAll("img");
 
@@ -69,7 +69,12 @@ function changeAlbum(e){
         // stop link from trying to reload page
         e.preventDefault();
         clearInterval(myInterval);
+        
   }
+  var target = e.target;
+  console.log(target);
+  console.log(aNum);
+
   slides.forEach((pic) => {
     pic.classList.add("hide");
   });
@@ -84,6 +89,37 @@ function changeAlbum(e){
   caption.classList.add("hide");
   caption2.classList.add("hide");
   caption3.classList.add("hide");
+  switch (aNum) {
+    case 2: 
+      slides2[0].classList.remove("hide");
+      caption2.innerHTML = slides[0].alt;
+      slides.forEach((pic) => {pic.classList.add("hide");});
+      slides3.forEach((pic) => {pic.classList.add("hide");});
+      caption.classList.add("hide");
+      caption3.classList.add("hide");
+      e.preventDefault();
+      break;
+    case 3:
+      slides.forEach((pic) => {pic.classList.add("hide");});
+      slides2.forEach((pic) => {pic.classList.add("hide");});
+      caption.classList.add("hide");
+      caption2.classList.add("hide");
+      slides3[0].classList.remove("hide");
+      caption3.innerHTML = slides[0].alt;
+      e.preventDefault();
+      break;
+    default: 
+      slides2.forEach((pic) => {pic.classList.add("hide");});
+      slides3.forEach((pic) => {pic.classList.add("hide");});
+      caption2.classList.add("hide");
+      caption3.classList.add("hide");
+      slides[0].classList.remove("hide");
+      caption.innerHTML = slides[0].alt;
+      e.preventDefault();
+      break;
+  }
+
+
 
 }
 
