@@ -50,6 +50,7 @@ h1 {
     margin-bottom: 1rem;
     text-align: center;
     font-family: 'Sen', cursive;
+    cursor: pointer;
 }
 
 article {
@@ -64,15 +65,73 @@ article {
 }
 article:hover {
     background-color: #731A1A;
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
     color:#f2f2f2;
 }
 
 /******** Back/Next Arrow Buttons *********/
 
+button {
+  align-self: center;
+  background-color: var(--btn-bkg-hover);
+  background-position: 0 90%;
+  background-size: 4px 3px;
+  /*border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;*/
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: var(--btn-hover-color);
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--ff-body), sans-serif;
+  font-size: 1rem;
+  line-height: 20px;
+  padding: .75rem;
+  transition: all 150ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  touch-action: manipulation;
+}
 
+button:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
 
+.button:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+/*
 
+.nxt {
+    right: 210px;
+}
 
+.nxt:after{
+    margin-left: -(var(--btn-arrowsize * .5));
+    margin-top: -(var(--btn-arrowsize * .25));
+    border-top: 4px solid;
+    border-left: 4px solid;
+    transform: rotateZ(90deg);
+}
+.prev {
+    left: 210px;
+}
+
+.prev::after {
+    content: "";
+    margin-left: -(var(--btn-arrowsize * .5));
+    margin-top: -(var(--btn-arrowsize * .75));
+    border-bottom: 4px solid;
+    border-left: 4px solid;
+    transform: rotateZ(90deg);
+}
+
+*/
 
 
 
