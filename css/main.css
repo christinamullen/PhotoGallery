@@ -1,11 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Sen&family=Sue+Ellen+Francisco&display=swap');
+:root {
+    
+    --btn-size: 75px;
+    --btn-arrowsize: var(--btn-size)/4;
 
+    --btn-color: #232021;
+    --btn-bkg: white;
+    --btn-border: #232021;
+
+    --btn-hover-color: #f2f2f2;
+    --btn-bkg-hover: #731A1A;
+    --btn-hover-border-color: #731A1A;
+    --ff-header: 'Sue Ellen Francisco', bold;
+    --ff-body: 'Sen', cursive;
+
+}
 
 * {
 box-sizing: border-box;
 }
 body {
     text-align: center;
+    background-color: white;
+    height: 100%;
+    margin: 0;
 }
 h1 {
     text-align: center;
@@ -18,7 +36,7 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-
+  /******** Nav Buttons *********/
 .albums {
     width: calc(100% - 2.25rem);
     max-width: 800px;
@@ -49,7 +67,28 @@ article:hover {
     color:#f2f2f2;
 }
 
-  /******** Galleries    *********/
+/******** Back/Next Arrow Buttons *********/
+
+
+
+
+
+
+
+
+footer{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+    background-color: var(--btn-bkg-hover);
+    font-size: smaller;
+    font-family: var(--ff-body);
+    overflow: auto;
+}
 
 
 .hide {
@@ -70,3 +109,4 @@ figcaption {
     height: 175px;
     transform: scale(1.1);
   }
+
