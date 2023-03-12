@@ -109,23 +109,20 @@ function changeAlbum(e) {
 }
 
 function changeSlide(e) {
-  if (!e) {
-    return;
-  }S
-  e.preventDefault();
-  clearInterval(myInterval);
+  if (e) {
+    e.preventDefault();
+    clearInterval(myInterval);
+  }
 
   let currCaption = currFigure.querySelector('figcaption');
-
   let showing = currFigure.querySelector(".current");
   let nextUp = "";
 
-  console.log("button classname:" + e.target.className);
   if (!e || e.target.className == 'nxt') {
     nextUp = showing.nextElementSibling;
   } else {
     nextUp = showing.previousElementSibling;
-  }S
+  }
 
   showing.classList.add("hide");
   showing.classList.remove("current");
