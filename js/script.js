@@ -1,8 +1,8 @@
-
 document.addEventListener('DOMContentLoaded', init);
 var myInterval = setInterval(changeSlide, 3000);
 var currentAlbum;
-var cA;
+var currFigure;
+var currSlides;
 
 const frame = document.querySelector(".frame");
 const slides = frame.querySelectorAll("img");
@@ -24,12 +24,12 @@ const adoptAlbum = document.querySelector(".adopt");
 const nxt = "";
 const prev = "";
 
-function init(){
+function init() {
 
   const nxt = document.querySelector(".nxt");
   const prev = document.querySelector(".prev");
   currentAlbum = slides;
-  cA = frame;
+  currFigure = frame;
 
   currentAlbum.forEach((pic) => {
     pic.classList.add("hide");
@@ -42,9 +42,9 @@ function init(){
   slides3.forEach((pic) => {
     pic.classList.add("hide");
   });
-  
+
   currentAlbum[0].classList.remove("hide");
-  
+
   nxt.addEventListener("click", changeSlide);
   //nxt.addEventListener("click",function(e) {changeSlide(e, 2);}, false); 
   prev.addEventListener("click", changeSlide);
@@ -52,85 +52,81 @@ function init(){
   caption.innerHTML = slides[0].alt;
   caption2.classList.add("hide");
   caption3.classList.add("hide");
-  
-  pastryAlbum.addEventListener("click", changeAlbum); 
-  adoptAlbum.addEventListener("click", changeAlbum); 
-  drinkAlbum.addEventListener("click", changeAlbum); 
+
+  pastryAlbum.addEventListener("click", changeAlbum);
+  adoptAlbum.addEventListener("click", changeAlbum);
+  drinkAlbum.addEventListener("click", changeAlbum);
 }
 
-function changeAlbum(e){
-  if(e){
-        // stop link from trying to reload page
-        e.preventDefault();
-        clearInterval(myInterval);
+function changeAlbum(e) {
+  if (!e) {
+    //if event didnt occur, dont continue
+    return;
   }
- //gets the currentAlbum
- var target = e.target.classList[0];
-  console.log(target);
+  // stop link from trying to reload page
+  e.preventDefault();
+  clearInterval(myInterval);
 
-  switch (target) {
-    case "pastries": 
-      slides.forEach((pic) => {pic.classList.add("hide");});
-      slides3.forEach((pic) => {pic.classList.add("hide");});
-      currentAlbum = slides2;
-      cA = pastries;
-      currentAlbum[0].classList.remove("hide");
-      console.log(currentAlbum);
-      caption2.innerHTML = slides2[0].alt;
+  //get the current Album by id
+  let targetButton = e.target;
+  let newId = targetButton.id;
 
-      caption.classList.add("hide");
-      caption3.classList.add("hide");
-      caption2.classList.remove("hide");
-      e.preventDefault();
-      break;
-    case "adopt":
-      currentAlbum = slides3;
-      cA = adoptables;
-      currentAlbum[0].classList.remove("hide");
-      caption3.innerHTML = slides3[0].alt;
-      slides.forEach((pic) => {pic.classList.add("hide");});
-      slides2.forEach((pic) => {pic.classList.add("hide");});
-      caption.classList.add("hide");
-      caption2.classList.add("hide");
-      caption3.classList.remove("hide");
-      e.preventDefault();
-      break;
-    default: 
-      currentAlbum = slides;
-      cA = frame;
-      currentAlbum[0].classList.remove("hide");
-      caption.innerHTML = slides[0].alt;
-      slides2.forEach((pic) => {pic.classList.add("hide");});
-      slides3.forEach((pic) => {pic.classList.add("hide");});
-      caption2.classList.add("hide");
-      caption3.classList.add("hide");
-      caption.classList.remove("hide");
-      e.preventDefault();
-      break;
-  }
-  //return target;
+  //get the id of the album
+  let newFigure = document.querySelector("." + newId);
+  let newAlbum = newFigure.querySelectorAll("img");
+
+  //replace figcaption with alt text
+  let currCaption = currFigure.querySelector('figcaption');
+  currCaption.classList.add("hide");
+  currCaption.innerHtml = currentAlbum[0].alt;
+  console.log("Old caption:" + currCaption.innerHTML);
+
+  //hide other pics
+  currentAlbum.forEach((pic) => {
+    pic.classList.add("hide");
+  });
+  //reset previous current
+  let showing = newFigure.querySelector(".current");
+  showing.classList.remove("current");
+
+  //to position 0
+  showing = newAlbum[0];
+  showing.classList.remove("hide");
+  showing.classList.add("current");
+
+  //get figcaption
+  let newCaption = newFigure.querySelector('figcaption');
+  console.log("Old figcaption:" + newCaption.innerHTML);
+
+  //replace with new alt text
+  newCaption.innerHTML = showing.alt;
+  console.log("New caption:" + showing.alt);
+
+  newCaption.classList.remove("hide");
+
+  currentAlbum = newAlbum;
+  currFigure = newFigure;
 }
 
 function changeSlide(e) {
-  if(e) {
-    // stop link from trying to reload page
-    e.preventDefault();
-    clearInterval(myInterval);
-  }
-  //const frame = document.querySelector(".frame");
-  //const slides = frame.querySelectorAll("img");
+  if(!e) {
+    return;
+ }
+ e.preventDefault();
+ clearInterval(myInterval);
 
-  const caption = cA.querySelector('figcaption');
+  let currCaption = currFigure.querySelector('figcaption');
 
-  let showing = cA.querySelector(".current");
+let showing = currFigure.querySelector(".current");
   let nextUp = "";
 
+  console.log("button classname:"+e.target.className);
   if(!e || e.target.className == 'nxt') {
     nextUp = showing.nextElementSibling;
-    console.log(nextUp);
   } else {
     nextUp = showing.previousElementSibling;
   }
+  console.log(nextUp);
 
   showing.classList.add("hide");
   showing.classList.remove("current");
@@ -151,5 +147,5 @@ function changeSlide(e) {
   nextUp.classList.remove("hide");
   nextUp.classList.add("current");
 
-  caption.innerHTML = nextUp.alt;
-}  
+  currCaption.innerHTML = nextUp.alt;
+}
