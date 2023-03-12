@@ -24,6 +24,7 @@ body {
     background-color: white;
     height: 100%;
     margin: 0;
+    margin-bottom: 5%;
 }
 h1 {
     text-align: center;
@@ -161,12 +162,13 @@ button:hover {
 
 
 footer{
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     left: 0;
     height: 2rem;
     padding-top: 1rem;
+    margin-top: 5%;
     text-align: center;
     background-color: var(--btn-bkg-hover);
     font-size: smaller;
