@@ -28,15 +28,40 @@ body {
 h1 {
     text-align: center;
 }
-.logo{
-    width: 35%;
-}
-.hero {
+
+/**********************Header ***********************/
+header{
+    margin: auto;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
-  /******** Nav Buttons *********/
+
+.cat {
+    display: flex;
+    width: 300px;
+    height:300px;
+    max-width: 100%;
+    background: url(/imgs/HoodcatEyeless.png) center/cover;
+    justify-content: center;
+    align-items:center;
+}
+
+.pupils {
+    display:flex;
+    margin: 4% 0 0 0;
+    justify-content: space-between;
+    width: 20%;
+    height: 5%;
+    animation: look 3.5s 4 ease-in-out alternate;
+}
+
+.pupil {
+    width:10%;
+    height:100%;
+    border-radius:50%;
+    background: var(--btn-color);
+}
+/*********************** Nav Buttons ***********************/
 .albums {
     width: calc(100% - 2.25rem);
     max-width: 800px;
@@ -98,7 +123,7 @@ article:hover {
      
 }
 
-/******** Back/Next Arrow Buttons *********/
+/*********************** Back/Next Buttons ***********************/
 
 button {
   align-self: center;
@@ -133,34 +158,6 @@ button:hover {
 .button:focus {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
-/*
-
-.nxt {
-    right: 210px;
-}
-
-.nxt:after{
-    margin-left: -(var(--btn-arrowsize * .5));
-    margin-top: -(var(--btn-arrowsize * .25));
-    border-top: 4px solid;
-    border-left: 4px solid;
-    transform: rotateZ(90deg);
-}
-.prev {
-    left: 210px;
-}
-
-.prev::after {
-    content: "";
-    margin-left: -(var(--btn-arrowsize * .5));
-    margin-top: -(var(--btn-arrowsize * .75));
-    border-bottom: 4px solid;
-    border-left: 4px solid;
-    transform: rotateZ(90deg);
-}
-
-*/
-
 
 
 footer{
@@ -195,5 +192,13 @@ figcaption {
     min-width: 175px;
     height: 175px;
     transform: scale(1.1);
-  }
+}
 
+@keyframes look {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-23%);
+    }
+}
