@@ -109,38 +109,34 @@ function changeAlbum(e) {
 }
 
 function changeSlide(e) {
-  if(!e) {
+  if (!e) {
     return;
- }
- e.preventDefault();
- clearInterval(myInterval);
+  }S
+  e.preventDefault();
+  clearInterval(myInterval);
 
   let currCaption = currFigure.querySelector('figcaption');
 
-let showing = currFigure.querySelector(".current");
+  let showing = currFigure.querySelector(".current");
   let nextUp = "";
 
-  console.log("button classname:"+e.target.className);
-  if(!e || e.target.className == 'nxt') {
+  console.log("button classname:" + e.target.className);
+  if (!e || e.target.className == 'nxt') {
     nextUp = showing.nextElementSibling;
   } else {
     nextUp = showing.previousElementSibling;
-  }
-  console.log(nextUp);
+  }S
 
   showing.classList.add("hide");
   showing.classList.remove("current");
 
   //make sure next image is there
   if (!nextUp) {
-    //nextUp = slides[slides.length - 1];
     nextUp = currentAlbum[currentAlbum.length - 1];
   }
 
   if (nextUp.nodeName !== "IMG") {
-    //nextUp = slides[0];
     nextUp = currentAlbum[0];
-    console.log(nextUp);
   }
 
   // activate next image
