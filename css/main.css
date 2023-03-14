@@ -54,7 +54,7 @@ header{
     justify-content: space-between;
     width: 20%;
     height: 5%;
-    animation: look 3.5s 4 ease-in-out alternate;
+    animation: look 3.5s infinite ease-in-out alternate;
 }
 
 .pupil {
